@@ -1,0 +1,52 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Couldn't get the strings file" : {
+
+    },
+    "Enter Google API Key here" : {
+
+    },
+    "Key2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "qqqqqq"
+          }
+        }
+      }
+    },
+    "Paste" : {
+
+    },
+    "Save" : {
+
+    },
+    "translate %@" : {
+
+    },
+    "Translate Selected File" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "wefasdvzsdfhb "
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
