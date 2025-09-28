@@ -14,22 +14,8 @@
     "Couldn't get the strings file" : {
 
     },
-    "Enter Google API Key here" : {
-
-    },
     "Key2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "qqqqqq"
-          }
-        }
-      }
-    },
-    "Paste" : {
-
+      "extractionState" : "manual"
     },
     "Save" : {
 
@@ -38,14 +24,7 @@
 
     },
     "Translate Selected File" : {
-      "localizations" : {
-        "ko" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "wefasdvzsdfhb "
-          }
-        }
-      }
+
     }
   },
   "version" : "1.0"

@@ -14,6 +14,7 @@ struct LocalizationHelperApp: App {
         WindowGroup {
             FolderManagerView(filter: {
                 do {
+                    //TODO: - right now only project will be allowed edit filter to also allow single file
                     return try $0.children().contains(where: {$0.pathExtension == .xcodeproj})
                 } catch {
                     presentAlert(error: error)

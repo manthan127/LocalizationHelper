@@ -7,13 +7,13 @@
 
 import SwiftUI
 
+/// **Warning**
+/// if you are using conditions directly inside the cellContent closure make sure to handle the default case
 struct ExcelTableView<Content: View, ColumnMenu: View, RowMenu : View>: View {
     let columnHeaders: [String]
     let rowHeaders: [String]
     
-    /// Closure that returns a cell View for a given row and column header
     @ViewBuilder let cellContent: (_ row: String, _ column: String) -> Content
-
     @ViewBuilder let columnMenu: (String) -> ColumnMenu
     @ViewBuilder let rowMenu: (String) -> RowMenu
     

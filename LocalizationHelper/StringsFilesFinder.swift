@@ -8,9 +8,9 @@
 import Foundation
 
 //grep -oE '[^ ]+\.swift' ReduceProjectSize.xcodeproj/project.pbxproj | sort -u | wc -l
-final class StringsFilesHandler {
-    static var shared: StringsFilesHandler {
-        StringsFilesHandler()
+final class StringsFilesFinder {
+    static var shared: StringsFilesFinder {
+        StringsFilesFinder()
     }
     
     //TODO: - handle the error properly instead of using `try?`
@@ -35,7 +35,7 @@ final class StringsFilesHandler {
     }
 }
 
-private extension StringsFilesHandler {
+private extension StringsFilesFinder {
     func extractKnownRegions(from filePath: URL) throws -> [String]? {
         let content = try String(contentsOf: filePath, encoding: .utf8)
         
@@ -66,33 +66,5 @@ private extension StringsFilesHandler {
                 []
             }
         }
-    }
-}
-
-func translateText(originalText: String, sourceLanguage: String, targetLanguage: String) async throws -> String? {
-    let urlString = "https://translation.googleapis.com/language/translate/v2?key=..."
-    guard let url = URL(string: urlString) else { throw URLError(.badURL) }
-    
-    let body: [String: Any] = [
-        "q": originalText,
-        "source": sourceLanguage,
-        "target": targetLanguage,
-        "format": "text"
-    ]
-    let bodyData = try? JSONSerialization.data(withJSONObject: body)
-    
-    var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpBody = bodyData
-    
-    let (data, _) = try await URLSession.shared.data(for: request)
-    if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-       let data = json["data"] as? [String: Any],
-       let translations = data["translations"] as? [[String: Any]],
-       let translatedText = translations.first?["translatedText"] as? String {
-        return translatedText
-    } else {
-        return nil
     }
 }

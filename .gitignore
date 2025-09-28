@@ -92,3 +92,6 @@ iOSInjectionProject/
 
 UserInterfaceState.xcuserstate
 *.DS_Store
+
+
+LocalizationHelper/PrivateKeys.swift

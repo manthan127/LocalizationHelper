@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 enum StringKeyValue {
     case translated(String)
@@ -52,8 +53,8 @@ struct StringCatalogModel: Hashable {
         get {
             let stringDict = (data["strings"] as? [String: Any])?[key] as? [String: Any]
             
-            if let shouldTranslate = stringDict?["shouldTranslate"] as? Bool {
-                return .shouldTranslate(shouldTranslate)
+            if stringDict?["shouldTranslate"] as? Bool == false {
+                return .shouldTranslate(false)
             }
             
             guard let translation = (((
@@ -84,6 +85,7 @@ struct StringCatalogModel: Hashable {
                 var stringUnit = langDict["stringUnit"] as? [String: String] ?? [:]
                 
                 stringUnit["value"] = string
+                stringUnit["state"] = "translated"
                 
                 langDict["stringUnit"] = stringUnit
                 localizations[lang] = langDict
@@ -99,9 +101,6 @@ struct StringCatalogModel: Hashable {
 
 extension StringCatalogModel {
     func save() throws {
-        guard url.startAccessingSecurityScopedResource() else { return }
-        defer { url.stopAccessingSecurityScopedResource() }
-        
         let data = try JSONSerialization.data(withJSONObject: data)
         try data.write(to: url)
     }
