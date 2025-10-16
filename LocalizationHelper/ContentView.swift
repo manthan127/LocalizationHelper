@@ -12,42 +12,43 @@ struct ContentView: View {
     @StateObject var vm = ViewModel()
     
     var body: some View {
-//            NavigationSplitView {
-//                List(stringCatalogs, id: \.url.absoluteString, selection: $selected) { url in
-//                    Text(url.url.lastPathComponent)
-//                }
-//            } detail: {
+        NavigationSplitView {
+            List(vm.stringCatalogs, id: \.self, selection: $vm.selected) { url in
+                Text(url.url.lastPathComponent)
+            }
+        } detail: {
+            content
+        }
+        .padding()
+        .task{ await vm.fetchURLData(url: url) }
+    }
+    
+    private var content: some View {
         VStack {
-            if !vm.stringCatalogs.isEmpty {
+            if let selected = vm.selected {
                 ExcelTableView(
                     columnHeaders: vm.langs,
-                    rowHeaders: vm.selected.strings,
-                    cellContent: cellView,
+                    rowHeaders: selected.strings,
+                    cellContent: { string, lang in
+                        Cell(error: vm.errors[string]?[lang], value: selected[string, lang])
+                    },
                     columnMenu: langsMenu(lang:),
                     rowMenu: stringsMenu(string:)
                 )
                 
                 buttonsView
-            }
-            else {
+            } else {
                 Text("Couldn't get the strings file")
                     .frame(maxHeight: .infinity)
             }
         }
         .frame(minWidth: 500, minHeight: 400)
-//                }
-        .padding()
-        .task{ await vm.fetchURLData(url: url) }
     }
 }
 
 // MARK: - Views
 private extension ContentView {
     // MARK: - Cell Views
-    func cellView(string: String, lang: String) -> some View {
-        Cell(error: vm.errors[string]?[lang], value: vm.selected[string, lang])
-    }
-    
     func translationValueCellView(translation: StringKeyValue) -> some View {
         let image = switch translation {
         case .translated: "checkmark.circle.fill"
@@ -69,7 +70,7 @@ private extension ContentView {
     func langsMenu(lang: String) -> some View {
         Button("translate \(lang)") {
             Task {
-                await vm.traslate(lang: lang)
+                await vm.traslate(lang: lang, stringCatalog: nil)
             }
         }
     }

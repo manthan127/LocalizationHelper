@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4044BB32E914CE60085EF49 /* Localizable2.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F4044BB22E914CE60085EF49 /* Localizable2.xcstrings */; };
 		F4506D492E6446BF00A21E75 /* FolderManager in Frameworks */ = {isa = PBXBuildFile; productRef = F4506D482E6446BF00A21E75 /* FolderManager */; };
 		F4506D4B2E644C9200A21E75 /* ExcelTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4506D4A2E644C9200A21E75 /* ExcelTableView.swift */; };
 		F46DA9DC2E6327CD006ED3D6 /* StringCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DA9DB2E6327CD006ED3D6 /* StringCatalogModel.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4044BB22E914CE60085EF49 /* Localizable2.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable2.xcstrings; sourceTree = "<group>"; };
 		F4506D4A2E644C9200A21E75 /* ExcelTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelTableView.swift; sourceTree = "<group>"; };
 		F46DA9DB2E6327CD006ED3D6 /* StringCatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCatalogModel.swift; sourceTree = "<group>"; };
 		F46DA9E02E632917006ED3D6 /* StringCatalogDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCatalogDataModel.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				F4DF5B042E6ACD4300E1566C /* Model */,
 				F4B9A9472E3BC68A00D0888F /* Assets.xcassets */,
 				F4ED5D632E88E34600C934C6 /* Localizable.xcstrings */,
+				F4044BB22E914CE60085EF49 /* Localizable2.xcstrings */,
 				F4B9A94C2E3BC68A00D0888F /* LocalizationHelper.entitlements */,
 				F46DA9DF2E6328FD006ED3D6 /* StringCatalogDataModel */,
 				F4B9A9492E3BC68A00D0888F /* Preview Content */,
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B9A94B2E3BC68A00D0888F /* Preview Assets.xcassets in Resources */,
+				F4044BB32E914CE60085EF49 /* Localizable2.xcstrings in Resources */,
 				F4B9A9482E3BC68A00D0888F /* Assets.xcassets in Resources */,
 				F4ED5D642E88E34600C934C6 /* Localizable.xcstrings in Resources */,
 			);
